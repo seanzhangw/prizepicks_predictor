@@ -1,7 +1,7 @@
 import json
 from nba_api.stats.static import players
 from nba_api.stats.endpoints import commonplayerinfo as cpi
-
+#changed by gguillen
 def _findIDs(firstName = None, lastName = None, active = None):
     """
     Returns a list of IDs that correspond to the selected parameters. The IDs are selected according to firstName,
