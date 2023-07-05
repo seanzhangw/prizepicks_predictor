@@ -1,2 +1,5 @@
 nba_api
 pandas
+numpy
+bs4
+requests
