@@ -48,9 +48,9 @@ class Player():
         else:
             for id in idList:
                 playerInfo = json.loads(cpi.CommonPlayerInfo(player_id = id).get_json())
-
                 # Filtering by the specified team. Team expected in abbreviation format (Ex. 'GSW')
                 playerTeam = playerInfo['resultSets'][0]['rowSet'][0][20]
+                
                 if team == playerTeam:
                     filteredList.append(id)
 

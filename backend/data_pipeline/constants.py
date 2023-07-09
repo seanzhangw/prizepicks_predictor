@@ -1,4 +1,4 @@
-teams = {
+abbrev_to_id = {
     'ATL': 1610612737,
     'BOS': 1610612738,
     'CLE': 1610612739,
@@ -29,4 +29,37 @@ teams = {
     'WAS': 1610612764, 
     'DET': 1610612765,
     'CHA': 1610612766, 
+}
+
+abbrev_to_nickname = {
+    'ATL': 'Hawks',
+    'BOS': 'Celtics',
+    'BKN': 'Nets',
+    'CHA': 'Hornets',
+    'CHI': 'Bulls',
+    'CLE': 'Cavaliers',
+    'DAL': 'Mavericks',
+    'DEN': 'Nuggets',
+    'DET': 'Pistons',
+    'GSW': 'Warriors',
+    'HOU': 'Rockets',
+    'IND': 'Pacers',
+    'LAC': 'Clippers',
+    'LAL': 'Lakers',
+    'MEM': 'Grizzlies',
+    'MIA': 'Heat',
+    'MIL': 'Bucks',
+    'MIN': 'Timberwolves',
+    'NOP': 'Pelicans',
+    'NYK': 'Knicks',
+    'OKC': 'Thunder',
+    'ORL': 'Magic',
+    'PHI': '76ers',
+    'PHX': 'Suns',
+    'POR': 'Trail Blazers',
+    'SAC': 'Kings',
+    'SAS': 'Spurs',
+    'TOR': 'Raptors',
+    'UTA': 'Jazz',
+    'WAS': 'Wizards'
 }

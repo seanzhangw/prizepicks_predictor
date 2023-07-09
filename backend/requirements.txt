@@ -3,3 +3,6 @@ pandas
 numpy
 bs4
 requests
+scikit-learn
+PyPDF2
+datetime
