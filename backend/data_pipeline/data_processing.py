@@ -1,8 +1,9 @@
+import constants as constants
 import data_retrieval as dr
 import data_scrappers as ws
 import pandas as pd
 import numpy as np
-import player_info
+import player_info as player_info
 
 
 """
@@ -18,11 +19,11 @@ opp_team: three-letter uppercase abbreviation that corresponds to the opposing t
 game_id: string that corresponds to the requested game
 """
 
-def getlastNGamesAvg(player_id, stat_type, numGames):
+def getlastNGamesAvg(player_id, stat_type, numGames, game_id = None):
     """
     Returns the average value of a statistics type of a player over recent games.
     """
-    gamelog = dr.getGameLog(player_id, numGames)
+    gamelog = dr.getGameLog(player_id, numGames, game_id=game_id)
     try:
         stat_col = gamelog[stat_type]
     except KeyError:
@@ -30,11 +31,13 @@ def getlastNGamesAvg(player_id, stat_type, numGames):
     
     return np.mean(np.array(stat_col))
 
-def getSeasonAvg(player_id, stat_type):
+# print(getlastNGamesAvg(203999, 'PTS', 5))
+
+def getSeasonAvg(player_id, stat_type, game_id = None):
     """
     Returns the average value of a statistics type of a player over the entire current season.
     """
-    gamelog = dr.getGameLog(player_id, stat_type)
+    gamelog = dr.getGameLog(player_id, game_id = game_id)
     try:
         stat_col = gamelog[stat_type]
     except KeyError:
@@ -42,12 +45,11 @@ def getSeasonAvg(player_id, stat_type):
     
     return np.mean(np.array(stat_col))
 
-def getMatchupAvg(player_id, stat_type, opp_team):
+def getMatchupAvg(player_id, stat_type, opp_team, game_id = None):
     """
     Returns the average value of a statistics type of a player in games against a specific team.
     """
-    gamelog = dr.getPrevMatchupLog(player_id, opp_team)
-    print(gamelog)
+    gamelog = dr.getPrevMatchupLog(player_id, opp_team, game_id)
     try:
         stat_col = gamelog[stat_type]
     except KeyError:
@@ -55,18 +57,18 @@ def getMatchupAvg(player_id, stat_type, opp_team):
     
     return np.mean(np.array(stat_col))
 
-def getRecentUsageRate(player_id, numGames):
+def getRecentUsageRate(player_id, numGames = 82, game_id = None):
     """
     Returns the usage rate of a player over recent games. 
     """
-    gamelog = dr.getGameLog(player_id, numGames)
+    gamelog = dr.getGameLog(player_id, numGames,game_id=game_id)
     list = []
     for entry in gamelog['Game_ID']:
         list.append(dr.getAdvancedBoxScore(player_id,entry)['USG_PCT'])
 
     return np.mean(np.array(list))
 
-def getPastUsageRate(player_id, numGames, game_date):
+def _getPastUsageRate(player_id, numGames, game_date):
     """
     Returns the usage rate of a player before the game specified by game_id
     """
@@ -134,7 +136,7 @@ def getPastMissingLineupStrength(team, player_id, game_id):
     usg_sum = 0
     for player in injured_list:
         player_obj = player_info.Player(lastName=player, active=True, team=team)
-        sum = getPastUsageRate(player_obj.player_id, 2, formatted_date)
+        sum = _getPastUsageRate(player_obj.player_id, 2, formatted_date)
         if sum:
             usg_sum += sum
 

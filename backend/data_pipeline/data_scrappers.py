@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import io
 import requests
 import PyPDF2
-import constants
+import constants as constants
 import time
 
 
