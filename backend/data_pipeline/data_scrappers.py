@@ -47,6 +47,7 @@ def getPastInjuryReport(date, visiting_team, home_team, requested_team):
     injury report for past games (training the model)
     """
     url = 'https://statsdmz.nba.com/pdfs/' + date + '/' + date + '_' + visiting_team + home_team + '.pdf'
+    #print(url)
     response = requests.get(url)
 
     # Read the content of the PDF into a file-like object

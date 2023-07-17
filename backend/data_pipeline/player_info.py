@@ -39,7 +39,7 @@ class Player():
         """
         filteredList = []
         idList = self._findIDs(firstName, lastName, active)
-
+        # print(idList)
         # Only one player with the specified first and last name
         if len(idList) == 1: return idList[0]
         # No players with the specified first and last name
@@ -49,8 +49,9 @@ class Player():
             for id in idList:
                 playerInfo = json.loads(cpi.CommonPlayerInfo(player_id = id).get_json())
                 # Filtering by the specified team. Team expected in abbreviation format (Ex. 'GSW')
+                # print(team)
                 playerTeam = playerInfo['resultSets'][0]['rowSet'][0][20]
-                
+                # print(playerTeam)
                 if team == playerTeam:
                     filteredList.append(id)
 
