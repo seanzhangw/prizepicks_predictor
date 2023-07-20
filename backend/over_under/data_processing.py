@@ -5,7 +5,6 @@ import pandas as pd
 import numpy as np
 import math
 import player_info as player_info
-
 import time #Runtime testing purposes
 
 """
