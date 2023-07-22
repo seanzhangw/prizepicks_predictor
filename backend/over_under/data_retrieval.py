@@ -3,7 +3,9 @@ from nba_api.stats.endpoints import (
     playergamelog as plg,
     boxscoreadvancedv2 as bsa,
     commonteamroster as ctr,
-    boxscoretraditionalv2 as bst
+    boxscoretraditionalv2 as bst,
+    leaguegamefinder as lgf,
+    commonplayerinfo as cpi
 )
 import pandas as pd
 from nba_api.stats.library.parameters import SeasonAll
@@ -25,7 +27,7 @@ def getGameLog(player_id, numGames = 82, game_id = None):
     """
     Returns a modified data frame containing the game log of the specified player. 
     Irrelevant columns are removed. Only retrieves games of the current season. If a
-    game_id is entered, only games before game_id are returned (inclusive)
+    game_id is entered, only games before game_id are returned (exclusive)
     """
     if game_id:
         full_log = plg.PlayerGameLog(player_id=player_id).get_data_frames()[0]
@@ -64,6 +66,18 @@ def getTraditionalBoxScore(game_id):
     """
     """
     return bst.BoxScoreTraditionalV2(game_id=game_id).get_data_frames()[0]
+
+def get_player_team(player_id):
+    """
+    """
+    # Get player info
+    player_info = cpi.CommonPlayerInfo(player_id=player_id)
+    player_info_dict = player_info.get_normalized_dict()
+    player_team_abbrev = player_info_dict['CommonPlayerInfo'][0]['TEAM_ABBREVIATION']
+
+    return player_team_abbrev
+
+get_player_team(203999)
 
 # def getGameDate(game_id):
 #     lgf_df = lgf.LeagueGameFinder(player_or_team_abbreviation="DEN", game_id_nullable = game_id).get_data_frames()

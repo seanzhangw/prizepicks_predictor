@@ -23,8 +23,14 @@ Notable models:
 7/19/23 
 2022-2023 NBA season player points model trained with Joel Embiid (203594), Nikola Jokic (203999), and Lebron James (2544)
 - Logistic Regression, "saga" algorithim, c hyperparameter = 0.13, LASSO ("l1") regression achieved 0.60 accuracy. 
-- Features include lastNGamesAvg, seasonAvg, matchupAvg, prevMatchupLogLength, recentUsageRate, and missingLineupStrength. 
+- Features include lastNGamesAvg, seasonAvg, matchupAvg, prevMatchupLogLength, recentUsageRate. 
 - Betting lines were established with a plus_minus of 4, so an average of two points from the actual line.
+
+7/21/23
+2022-2023 NBA season player points model trained with Joel Embiid (203594), Nikola Jokic (203999), and Lebron James (2544)
+- Logistic Regression, "saga" algorithim, c hyperparameter = 0.45, lASSO ("l1") regression achieved 0.68333 accuracy.
+- Features include everything from 7/19 model plus missingLineupStrength.
+- Betting lines were established with a plus_minus of 4. So an average of two points frmo the actual line.
 
 """
 def getFeatures(player_id, team, stat_type, numGames, id, opp_team, plus_minus, game_features):
@@ -64,7 +70,7 @@ def getFeatures(player_id, team, stat_type, numGames, id, opp_team, plus_minus, 
     # Adding the betting line
     offset = 0
     while offset == 0:
-        offset = rand.randint(-4,4)
+        offset = rand.randint(-plus_minus,plus_minus)
     betting_line = dp.getPointsScored(player_id,game_id=id).values + offset
     game_features.append(betting_line[0])
     print(game_features)
@@ -135,46 +141,54 @@ def test_model(test_filename, model_obj = None):
 
     # Obtaining the test results for comparison with the real results
     test_results = model.predict(features)
-
+    probabilities = model.predict_proba(features)
     total_elements = len(test_results)
     total_matches = 0
-
+    correct_prob = []
+    incorrect_prob = []
     # Comparing model test results and real results
     for i in range(total_elements):
         if test_results[i] == true_results[i]:
+            print("correct: " + str(probabilities[i]))
+            correct_prob.append(max(probabilities[i]))
             total_matches += 1
-    print(total_matches)
+        else:
+            print("incorrect: " + str(probabilities[i]))
+            incorrect_prob.append(max(probabilities[i]))
+
+    print("mean correct: " + str(np.mean(correct_prob)))
+    print("mean incorrect: " + str(np.mean(incorrect_prob)))
+ 
     return total_matches/total_elements
 
-print(test_model("test_data_normalized.csv",get_trained_model_from_csv("training_data_normalized.csv", "l1", "saga", 0.13)))
+
+print(test_model("test_data_normalized_2.csv"))
     
 #get_trained_model_from_csv(filename="training_data_no_normalization.csv", penalty="l2",c_penalty=1,solver="lbfgs")
-def prep_data_pts_model(filename, player_id, team, numGames):
+def prep_data_pts_model(filename, player_list, numGames):
     """
     Creates one csv file that contains the training data and one csv file that contains the test data.
 
     params:
-    player_id : int that corresponds to a specific player
-    team: string with the three letter abbreviation for the specified player's NBA team 
+    player_list : list of player ids that the model is trained on
     numGames: int that specifies the number of games to train the model on
     """
     path = "prizepicks_predictor/backend/over_under/processed_data/" + filename
 
     data = {"features" : [], "results" : []}
 
-    player_list = [203954, 203999,2544]
     for player_id in player_list:
         print("NEW PLAYER: " + str(player_id))
         gamelog = dr.getGameLog(player_id, numGames=82)
         game_id_list = gamelog["Game_ID"].values
         game_id_list = game_id_list[:20]
-
+        team = dr.get_player_team(player_id=player_id)
         time.sleep(30)
         for id in game_id_list:
             opp_team = dp.getOppTeamAbbrev(game_id=id, team=team)
             print(id)
             game_features = []
-            under = getFeatures(player_id=player_id,team=team,numGames=numGames,stat_type="PTS",id=id,opp_team=opp_team,game_features=game_features)
+            under = getFeatures(player_id=player_id,team=team,numGames=numGames,stat_type="PTS",id=id,opp_team=opp_team,plus_minus=4,game_features=game_features)
             time.sleep(1) # Delay to stop nba.com from refusing requests
             if under:
                 result = 0 # Under b/c the offset made the line too high (adding a positive)
@@ -195,4 +209,4 @@ def prep_data_pts_model(filename, player_id, team, numGames):
             row = np.concatenate((data["features"][i], [data["results"][i]]))
             writer.writerow(row)
 
-#prep_data_pts_model(filename="test_data_normalized.csv",player_id=203999, team="DEN", numGames = 5)
+#prep_data_pts_model(filename="test_data_normalized_2.csv",player_list = [203954, 203999,2544], numGames = 5)

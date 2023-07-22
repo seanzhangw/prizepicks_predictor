@@ -39,7 +39,8 @@ class Player():
         """
         filteredList = []
         idList = self._findIDs(firstName, lastName, active)
-        # print(idList)
+        print(lastName)
+        print(idList)
         # Only one player with the specified first and last name
         if len(idList) == 1: return idList[0]
         # No players with the specified first and last name
@@ -54,7 +55,8 @@ class Player():
                 # print(playerTeam)
                 if team == playerTeam:
                     filteredList.append(id)
-
+            if len(filteredList) == 0:
+                return None
         return filteredList[0]
     
     #TODO:

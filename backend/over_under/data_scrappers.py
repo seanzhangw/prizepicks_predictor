@@ -81,6 +81,8 @@ def getPastInjuryReport(date, visiting_team, home_team, requested_team):
             first_line = True
         else:
             pass
+
+    # print("injury_line: " + injury_line)
     
     return _getPastInjuryReportHelper(injury_line)
 
@@ -101,3 +103,48 @@ def _getPastInjuryReportHelper(string):
     # Split the remaining string by commas
     names_list = [name.strip() for name in string.split(',')]
     return names_list
+
+#TODO: Determine suitable website to pull data from that is updated daily. May need to wait until the NBA season starts
+def getDefensiveRating(opp_team):
+    """
+    Returns the most recent defensive rating of the specified team. This function is meant to be called for actual predictions
+
+    params:
+    opp_team : string containing the three-letter abbreviation of the requested team
+    """
+    pass
+
+def getPastDefensiveRating(date, opp_team):
+    """
+    Returns the defensive rating of the specified team up until the specified date. This function is meant to be called for training
+    a model
+
+    params:
+    date : 
+    opp_team : string containing the three-letter abbreviation of the requested team
+    """
+    url = "https://www.teamrankings.com/nba/stat/defensive-efficiency?date=" + date[:4] + "-" + date[4:6] + "-" + date[6:8]
+    # print(url)
+    response = requests.get(url)
+
+    # Create a beautiful soup object
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    # Find the container that holds the injury information
+    container = soup.find("table")
+
+    # Get table headers and rows
+    headers = [th.getText() for th in container.find_all('tr')[0].find_all('th')]
+    rows = container.find_all('tr')[1:]
+
+    # Extract the data for the specific team
+    for row in rows:
+        team_row = {headers[i]: td.getText() for i, td in enumerate(row.find_all('td'))}
+        if team_row.get('Team') in constants.abbrev_to_city[opp_team]:
+            try:
+                float(team_row.get('2022'))
+            except ValueError:
+                return None
+            return float(team_row.get('2022'))
+
+# print(getPastDefensiveRating("20230118","BOS"))

@@ -20,6 +20,8 @@ opp_team: three-letter uppercase abbreviation that corresponds to the opposing t
 game_id: string that corresponds to the requested game
 """
 
+# TODO: Update function specifications to include parameters
+
 def getlastNGamesAvg(player_id, stat_type, numGames, game_id = None):
     """
     Returns the average value of a statistics type of a player over recent games.
@@ -78,26 +80,27 @@ def getRecentUsageRate(player_id, numGames = 82, game_id = None):
         list.append(dr.getAdvancedBoxScore(player_id,entry)['USG_PCT'])
     return np.mean(np.array(list))
 
-def _getPastUsageRate(player_id, numGames, game_date):
+#TODO: getGameLog call can be modified to automatically cut out games past a certain date. May improve performance
+def _getPastUsageRate(player_id, numGames, game_date, game_id):
     """
     Returns the usage rate of a player before the game specified by game_id
     """
-    gamelog = dr.getGameLog(player_id)
+    gamelog = dr.getGameLog(player_id,game_id=game_id)
+    print(gamelog)
+    sum = 0
     if not gamelog.empty:
         list = []
         for index, row in gamelog.iterrows():
-            date_value = row["GAME_DATE"]
-            date_obj = pd.to_datetime(date_value, format="%b %d, %Y")
-            formatted_date = date_obj.strftime("%Y%m%d")
-            if formatted_date < game_date:
-                list.append(dr.getAdvancedBoxScore(player_id,row["Game_ID"])['USG_PCT'])
-                if len(list) == numGames:
-                    break
+            list.append(dr.getAdvancedBoxScore(player_id,row["Game_ID"])['USG_PCT'])
+            print("HERE DUMBASS")
+            if len(list) == numGames:
+                break
 
         return np.mean(np.array(list))
     else:
         return None
 
+# _getPastUsageRate(1629663,2,20230331)
 def getMissingLineupStrength(team):
     """
     Returns the calculated line-up strength. The line-up strength is calculated according
@@ -107,8 +110,8 @@ def getMissingLineupStrength(team):
     Ex. If Nikola Jokic (usg_pct = .25) and Jamal Murray (usg_pct = .15) are injured, the
     missing line-up strength is 0.40
     """
-    """NOTE: This function assumes the player who are trying to predict isn't injured. Should be fine
-    since PrizePicks won't post a line with an injured player"""
+    # NOTE: This function assumes the player who are trying to predict isn't injured. Should be fine
+    # since PrizePicks won't post a line with an injured player
     injuredlist = ws.getInjuryReport(team)
     usg_sum = 0
     for player in injuredlist:
@@ -129,12 +132,12 @@ def getPastMissingLineupStrength(team, player_id, game_id):
     """
     gamelog = dr.getGameLog(player_id)
     selected_game = gamelog[gamelog['Game_ID'].str.contains(game_id)]
-
+    #print(selected_game)
     # Extract the right date
     date_value = selected_game["GAME_DATE"].values[0]
     date_obj = pd.to_datetime(date_value, format="%b %d, %Y")
     formatted_date = date_obj.strftime("%Y%m%d")
-
+    #print("formatted date: " + formatted_date)
     # Extract the visiting and home team
     matchup_line = selected_game["MATCHUP"].values[0]
     if "@" in matchup_line:
@@ -143,23 +146,40 @@ def getPastMissingLineupStrength(team, player_id, game_id):
     else:
         home_team = matchup_line[:3]
         visiting_team=matchup_line[matchup_line.index(".")+2:]
-
+    #print("visiting team: " + visiting_team)
     injured_list = ws.getPastInjuryReport(date=formatted_date, visiting_team=visiting_team, home_team=home_team,requested_team=team)
-
     usg_sum = 0
     for player in injured_list:
         player_obj = player_info.Player(lastName=player, active=True, team=team)
-
-        sum = _getPastUsageRate(player_obj.player_id, 2, formatted_date)
-        if sum:
-            usg_sum += sum
+        if player_obj.player_id:
+            sum = _getPastUsageRate(player_obj.player_id, 2, formatted_date, game_id)
+            if sum:
+                usg_sum += sum
 
     return usg_sum
 
-#getPastMissingLineupStrength("DEN",203999,'0022200035')
+# print(_getPastUsageRate(203473, 2, '20230223'))
 
-def getOppDefRating(team_id):
-    pass
+def getOppDefRating(opp_team, player_id, game_id = None):
+    """
+    Returns the defensive rating for a specific team. If the game_id is specified, returns the rating up until the specified
+    game. If no game_id is specified, returns the most recent defensive rating.
+    """
+    if game_id:
+        gamelog = dr.getGameLog(player_id = player_id, game_id = game_id)
+        try:
+            date = gamelog["GAME_DATE"].values[0]
+        except IndexError:
+            return None
+        date_obj = pd.to_datetime(date, format="%b %d, %Y")
+        formatted_date = date_obj.strftime("%Y%m%d")  
+        #print(formatted_date)
+        return ws.getPastDefensiveRating(date=formatted_date, opp_team=opp_team)
+    else:
+        return ws.getDefensiveRating(opp_team)
+
+
+# print(getOppDefRating("DEN", 203999, '0022201139'))
 
 def getOppTeamAbbrev(game_id, team):
     """
@@ -178,5 +198,6 @@ def getPointsScored(player_id, game_id):
     box_score = dr.getTraditionalBoxScore(game_id=game_id)
     selected_line = box_score[box_score['PLAYER_ID']== player_id]
     return selected_line['PTS']
+
 
 #getMatchupAvg(203999, "PTS", getOppTeamAbbrev(team="DEN",game_id='0022201109'), game_id='0022201109')
