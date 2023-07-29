@@ -1,0 +1,268 @@
+,Name,Value,Prop
+0,Alek Manoah,5.5,Pitcher Strikeouts
+1,Reid Detmers,5.5,Pitcher Strikeouts
+2,Johnny Cueto,5.0,Pitcher Strikeouts
+3,Aaron Nola,7.0,Pitcher Strikeouts
+4,Quinn Priester,3.5,Pitcher Strikeouts
+5,Logan Allen,5.0,Pitcher Strikeouts
+6,Michael Kopech,5.0,Pitcher Strikeouts
+7,Bailey Ober,5.0,Pitcher Strikeouts
+8,Jordan Lyles,4.5,Pitcher Strikeouts
+9,Carlos Carrasco,4.0,Pitcher Strikeouts
+10,Patrick Corbin,4.0,Pitcher Strikeouts
+11,James Paxton,6.0,Pitcher Strikeouts
+12,Adam Wainwright,3.0,Pitcher Strikeouts
+13,Jameson Taillon,4.5,Pitcher Strikeouts
+14,Clarke Schmidt,4.0,Pitcher Strikeouts
+15,Tyler Wells,5.0,Pitcher Strikeouts
+16,Hunter Brown,6.5,Pitcher Strikeouts
+17,Taj Bradley,5.0,Pitcher Strikeouts
+18,Bryce Elder,4.0,Pitcher Strikeouts
+19,Julio Teheran,3.5,Pitcher Strikeouts
+20,Brandon Pfaadt,5.0,Pitcher Strikeouts
+21,Bryan Woo,5.0,Pitcher Strikeouts
+22,Paul Blackburn,4.0,Pitcher Strikeouts
+23,Martín Pérez,3.5,Pitcher Strikeouts
+24,Yu Darvish,6.5,Pitcher Strikeouts
+25,Emmet Sheehan,5.0,Pitcher Strikeouts
+26,Luke Weaver,3.5,Pitcher Strikeouts
+27,Alek Manoah + Reid Detmers,10.5,Pitcher Strikeouts (Combo)
+28,Quinn Priester + Aaron Nola,10.5,Pitcher Strikeouts (Combo)
+29,Jordan Lyles + Bailey Ober,9.5,Pitcher Strikeouts (Combo)
+30,Jameson Taillon + Adam Wainwright,7.5,Pitcher Strikeouts (Combo)
+31,Clarke Schmidt + Tyler Wells,9.0,Pitcher Strikeouts (Combo)
+32,Hunter Brown + Taj Bradley,11.5,Pitcher Strikeouts (Combo)
+33,Bryce Elder + Julio Teheran,7.5,Pitcher Strikeouts (Combo)
+34,Brandon Pfaadt + Bryan Woo,10.0,Pitcher Strikeouts (Combo)
+35,Yu Darvish + Martín Pérez,10.0,Pitcher Strikeouts (Combo)
+36,Emmet Sheehan + Luke Weaver,8.5,Pitcher Strikeouts (Combo)
+37,Alek Manoah + Adam Wainwright,0.5,1st Inning Runs Allowed
+38,Johnny Cueto + Beau Brieske,0.5,1st Inning Runs Allowed
+39,Carlos Carrasco + Johnny Cueto,0.5,1st Inning Runs Allowed
+40,Jordan Lyles + Bailey Ober,0.5,1st Inning Runs Allowed
+41,Quinn Priester + Aaron Nola,0.5,1st Inning Runs Allowed
+42,Hunter Brown + Taj Bradley,0.5,1st Inning Runs Allowed
+43,Emmet Sheehan + Bryan Woo,0.5,1st Inning Runs Allowed
+44,Yu Darvish + Martín Pérez,0.5,1st Inning Runs Allowed
+45,Alek Manoah,5.0,Hits Allowed
+46,Johnny Cueto,5.5,Hits Allowed
+47,Aaron Nola,5.0,Hits Allowed
+48,Bailey Ober,5.5,Hits Allowed
+49,Jordan Lyles,5.5,Hits Allowed
+50,James Paxton,4.5,Hits Allowed
+51,Paul Blackburn,6.5,Hits Allowed
+52,Martín Pérez,5.5,Hits Allowed
+53,Bo Bichette,1.5,Total Bases
+54,Bryce Harper,1.5,Total Bases
+55,Nick Castellanos,1.5,Total Bases
+56,Trea Turner,1.5,Total Bases
+57,Zach Remillard,0.5,Total Bases
+58,Alex Kirilloff,1.5,Total Bases
+59,Carlos Correa,1.5,Total Bases
+60,Joey Gallo,0.5,Total Bases
+61,Max Kepler,1.5,Total Bases
+62,Francisco Lindor,1.5,Total Bases
+63,Marco Luciano,0.5,Total Bases
+64,Brendan Donovan,1.5,Total Bases
+65,Nico Hoerner,1.5,Total Bases
+66,Nolan Arenado,1.5,Total Bases
+67,Aaron Judge,1.5,Total Bases
+68,Anthony Santander,1.5,Total Bases
+69,Billy McKinney,0.5,Total Bases
+70,Gleyber Torres,1.5,Total Bases
+71,Jose Siri,0.5,Total Bases
+72,Austin Riley,1.5,Total Bases
+73,Christian Yelich,1.5,Total Bases
+74,Marcell Ozuna,1.5,Total Bases
+75,Matt Olson,1.5,Total Bases
+76,Ozzie Albies,1.5,Total Bases
+77,Carson Kelly,0.5,Total Bases
+78,Julio Rodríguez,1.5,Total Bases
+79,Teoscar Hernández,1.5,Total Bases
+80,Brent Rooker,1.5,Total Bases
+81,C.J. Cron,1.5,Total Bases
+82,Jurickson Profar,1.5,Total Bases
+83,Ramón Laureano,1.5,Total Bases
+84,Randal Grichuk,1.5,Total Bases
+85,Seth Brown,1.5,Total Bases
+86,Shea Langeliers,1.5,Total Bases
+87,Fernando Tatis Jr.,1.5,Total Bases
+88,Mitch Garver,0.5,Total Bases
+89,Robbie Grossman,0.5,Total Bases
+90,Trent Grisham,0.5,Total Bases
+91,Freddie Freeman,1.5,Total Bases
+92,James Outman,0.5,Total Bases
+93,Mookie Betts,1.5,Total Bases
+94,Will Benson,0.5,Total Bases
+95,Aaron Nola,1.5,Walks Allowed
+96,Adam Wainwright,1.5,Walks Allowed
+97,Alek Manoah,26.5,Pitcher Fantasy Score
+98,Reid Detmers,27.5,Pitcher Fantasy Score
+99,Aaron Nola,37.5,Pitcher Fantasy Score
+100,Logan Allen,29.5,Pitcher Fantasy Score
+101,Bailey Ober,31.5,Pitcher Fantasy Score
+102,Jordan Lyles,23.5,Pitcher Fantasy Score
+103,James Paxton,34.5,Pitcher Fantasy Score
+104,Tyler Wells,25.5,Pitcher Fantasy Score
+105,Hunter Brown,33.5,Pitcher Fantasy Score
+106,Bryce Elder,26.5,Pitcher Fantasy Score
+107,Yu Darvish,34.5,Pitcher Fantasy Score
+108,Taylor Ward,1.5,Hits+Runs+RBIS
+109,Riley Greene,1.5,Hits+Runs+RBIS
+110,Jon Berti,1.5,Hits+Runs+RBIS
+111,Bryan Reynolds,1.5,Hits+Runs+RBIS
+112,Henry Davis,1.5,Hits+Runs+RBIS
+113,Jake Cave,1.5,Hits+Runs+RBIS
+114,Luis Robert,1.5,Hits+Runs+RBIS
+115,Byron Buxton,1.5,Hits+Runs+RBIS
+116,Christian Vázquez,1.5,Hits+Runs+RBIS
+117,Freddy Fermin,1.5,Hits+Runs+RBIS
+118,Corey Dickerson,1.5,Hits+Runs+RBIS
+119,Francisco Álvarez,1.5,Hits+Runs+RBIS
+120,Jeimer Candelario,1.5,Hits+Runs+RBIS
+121,Christopher Morel,1.5,Hits+Runs+RBIS
+122,Nolan Gorman,1.5,Hits+Runs+RBIS
+123,Adam Frazier,1.5,Hits+Runs+RBIS
+124,Harrison Bader,1.5,Hits+Runs+RBIS
+125,Kyle Tucker,1.5,Hits+Runs+RBIS
+126,Yordan Alvarez,1.5,Hits+Runs+RBIS
+127,Wander Franco,1.5,Hits+Runs+RBIS
+128,Matt Olson,2.5,Hits+Runs+RBIS
+129,Ronald Acuña Jr.,2.5,Hits+Runs+RBIS
+130,Sal Frelick,1.5,Hits+Runs+RBIS
+131,Jake McCarthy,1.5,Hits+Runs+RBIS
+132,Aledmys Díaz,1.5,Hits+Runs+RBIS
+133,Juan Soto,1.5,Hits+Runs+RBIS
+134,Nathaniel Lowe,1.5,Hits+Runs+RBIS
+135,Matt McLain,1.5,Hits+Runs+RBIS
+136,Miguel Rojas,1.5,Hits+Runs+RBIS
+137,Vladimir Guerrero Jr. + Shohei Ohtani,4.0,Hits+Runs+RBIs (Combo)
+138,Nico Hoerner + Paul Goldschmidt,4.0,Hits+Runs+RBIs (Combo)
+139,Kyle Tucker + Wander Franco,3.5,Hits+Runs+RBIs (Combo)
+140,Ronald Acuña Jr. + Christian Yelich,4.5,Hits+Runs+RBIs (Combo)
+141,Fernando Tatis Jr. + Marcus Semien,4.0,Hits+Runs+RBIs (Combo)
+142,Freddie Freeman + Elly De La Cruz,4.0,Hits+Runs+RBIs (Combo)
+143,Alek Manoah,16.0,Pitching Outs
+144,Jordan Lyles,15.5,Pitching Outs
+145,James Paxton,17.5,Pitching Outs
+146,Jameson Taillon,16.5,Pitching Outs
+147,Tyler Wells,16.5,Pitching Outs
+148,Bryce Elder,17.5,Pitching Outs
+149,Julio Teheran,15.5,Pitching Outs
+150,Paul Blackburn,16.0,Pitching Outs
+151,Shohei Ohtani,9.0,Hitter Fantasy Score
+152,Vladimir Guerrero Jr.,7.5,Hitter Fantasy Score
+153,Taylor Ward,7.0,Hitter Fantasy Score
+154,Bo Bichette,7.0,Hitter Fantasy Score
+155,Luis Arraez,7.5,Hitter Fantasy Score
+156,Riley Greene,6.5,Hitter Fantasy Score
+157,Bryce Harper,7.5,Hitter Fantasy Score
+158,Trea Turner,7.5,Hitter Fantasy Score
+159,José Ramírez,8.0,Hitter Fantasy Score
+160,Luis Robert,7.5,Hitter Fantasy Score
+161,Steven Kwan,7.5,Hitter Fantasy Score
+162,Bobby Witt Jr.,7.0,Hitter Fantasy Score
+163,Carlos Correa,7.0,Hitter Fantasy Score
+164,Francisco Lindor,7.5,Hitter Fantasy Score
+165,Aaron Judge,8.5,Hitter Fantasy Score
+166,Lane Thomas,6.5,Hitter Fantasy Score
+167,Adley Rutschman,7.0,Hitter Fantasy Score
+168,Pete Alonso,8.0,Hitter Fantasy Score
+169,Gleyber Torres,7.5,Hitter Fantasy Score
+170,Anthony Santander,6.5,Hitter Fantasy Score
+171,Rafael Devers,7.5,Hitter Fantasy Score
+172,Justin Turner,7.5,Hitter Fantasy Score
+173,Cody Bellinger,7.5,Hitter Fantasy Score
+174,Nolan Arenado,7.0,Hitter Fantasy Score
+175,Nico Hoerner,8.0,Hitter Fantasy Score
+176,Paul Goldschmidt,7.5,Hitter Fantasy Score
+177,Kyle Tucker,8.0,Hitter Fantasy Score
+178,Yandy Díaz,6.5,Hitter Fantasy Score
+179,Yordan Alvarez,7.5,Hitter Fantasy Score
+180,Wander Franco,7.0,Hitter Fantasy Score
+181,Ronald Acuña Jr.,11.5,Hitter Fantasy Score
+182,Christian Yelich,7.5,Hitter Fantasy Score
+183,Matt Olson,8.5,Hitter Fantasy Score
+184,Corbin Carroll,8.5,Hitter Fantasy Score
+185,Julio Rodríguez,8.0,Hitter Fantasy Score
+186,Ketel Marte,7.5,Hitter Fantasy Score
+187,Fernando Tatis Jr.,9.0,Hitter Fantasy Score
+188,Marcus Semien,7.5,Hitter Fantasy Score
+189,Juan Soto,8.0,Hitter Fantasy Score
+190,Nathaniel Lowe,6.5,Hitter Fantasy Score
+191,Freddie Freeman,8.5,Hitter Fantasy Score
+192,Elly De La Cruz,8.5,Hitter Fantasy Score
+193,Mookie Betts,8.5,Hitter Fantasy Score
+194,Matt McLain,6.5,Hitter Fantasy Score
+195,Alek Manoah,91.5,Pitches Thrown
+196,Reid Detmers,96.5,Pitches Thrown
+197,Aaron Nola,97.5,Pitches Thrown
+198,Bailey Ober,90.5,Pitches Thrown
+199,Patrick Corbin,94.5,Pitches Thrown
+200,James Paxton,95.5,Pitches Thrown
+201,Hunter Brown,93.5,Pitches Thrown
+202,Bryce Elder,95.5,Pitches Thrown
+203,Yu Darvish,96.5,Pitches Thrown
+204,Alek Manoah,2.5,Earned Runs Allowed
+205,Johnny Cueto,2.5,Earned Runs Allowed
+206,Bailey Ober,2.5,Earned Runs Allowed
+207,Tyler Wells,2.5,Earned Runs Allowed
+208,Clarke Schmidt,2.5,Earned Runs Allowed
+209,Taj Bradley,2.5,Earned Runs Allowed
+210,Paul Blackburn,3.5,Earned Runs Allowed
+211,Wander Franco + CJ Abrams,0.5,Stolen Bases (Combo)
+212,Jake McCarthy + Travis Jankowski,0.5,Stolen Bases (Combo)
+213,Matt Olson,0.5,RBIs
+214,Bo Bichette,0.5,Runs
+215,Riley Greene,0.5,Runs
+216,Bryce Harper,0.5,Runs
+217,Trea Turner,0.5,Runs
+218,Bobby Witt Jr.,0.5,Runs
+219,Carlos Correa,0.5,Runs
+220,Lane Thomas,0.5,Runs
+221,Gleyber Torres,0.5,Runs
+222,Anthony Santander,0.5,Runs
+223,Nolan Arenado,0.5,Runs
+224,Nico Hoerner,0.5,Runs
+225,Paul Goldschmidt,0.5,Runs
+226,Yordan Alvarez,0.5,Runs
+227,Corbin Carroll,0.5,Runs
+228,Julio Rodríguez,0.5,Runs
+229,Ketel Marte,0.5,Runs
+230,Marcus Semien,0.5,Runs
+231,Elly De La Cruz,0.5,Runs
+232,Vladimir Guerrero Jr. + Hunter Renfroe,0.5,Walks (Combo)
+233,Francisco Álvarez + Carlos Correa,0.5,Walks (Combo)
+234,Ronald Acuña Jr. + Anthony Rizzo,0.5,Walks (Combo)
+235,Rafael Devers + Randy Arozarena,0.5,Walks (Combo)
+236,Elly De La Cruz + Adolis García,0.5,Walks (Combo)
+237,Alejandro Kirk,0.5,Hitter Strikeouts
+238,Joey Wendle,0.5,Hitter Strikeouts
+239,Jon Berti,0.5,Hitter Strikeouts
+240,Alec Bohm,0.5,Hitter Strikeouts
+241,Bryson Stott,0.5,Hitter Strikeouts
+242,Jack Suwinski,1.5,Hitter Strikeouts
+243,Andrew Benintendi,0.5,Hitter Strikeouts
+244,Andrew Vaughn,0.5,Hitter Strikeouts
+245,Joey Gallo,1.5,Hitter Strikeouts
+246,Corey Dickerson,0.5,Hitter Strikeouts
+247,Mark Canha,0.5,Hitter Strikeouts
+248,Alex Verdugo,0.5,Hitter Strikeouts
+249,Luis Matos,0.5,Hitter Strikeouts
+250,Masataka Yoshida,0.5,Hitter Strikeouts
+251,Brendan Donovan,0.5,Hitter Strikeouts
+252,Nolan Arenado,0.5,Hitter Strikeouts
+253,Harrison Bader,0.5,Hitter Strikeouts
+254,Alex Bregman,0.5,Hitter Strikeouts
+255,Jose Siri,1.5,Hitter Strikeouts
+256,Luke Raley,1.5,Hitter Strikeouts
+257,Carlos Santana,0.5,Hitter Strikeouts
+258,Michael Harris II,0.5,Hitter Strikeouts
+259,Orlando Arcia,0.5,Hitter Strikeouts
+260,Ozzie Albies,0.5,Hitter Strikeouts
+261,Ronald Acuña Jr.,0.5,Hitter Strikeouts
+262,Austin Wynns,0.5,Hitter Strikeouts
+263,Harold Castro,0.5,Hitter Strikeouts
+264,Manny Machado,0.5,Hitter Strikeouts
+265,David Peralta,0.5,Hitter Strikeouts
+266,Will Smith,0.5,Hitter Strikeouts

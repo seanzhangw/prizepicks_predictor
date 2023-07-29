@@ -6,3 +6,7 @@ requests
 scikit-learn
 PyPDF2
 datetime
+selenium
+flask
+apifairy
+python-dotenv
