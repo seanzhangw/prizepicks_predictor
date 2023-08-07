@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import time
@@ -17,9 +18,8 @@ def getPPProps(sport_abbrev):
     params:
     sport_abbrev : three-letter abbreviation of the title of a sports league ex. NBA, MLB, LoL
     """
-    # Driver initialization
+    # Driver initialization. Must have correct chromedriver installation.
     driver = webdriver.Chrome()
-
     driver.get("https://app.prizepicks.com/")
 
     wait = WebDriverWait(driver,15).until(EC.presence_of_element_located((By.CLASS_NAME, "close")))
@@ -54,11 +54,8 @@ def getPPProps(sport_abbrev):
             ppPlayers.append(players)
 
     dfProps = pd.DataFrame(ppPlayers)
-    dfProps.to_csv('prizepicks_predictor/backend/ppscrapper/past_lines/' + str(date.today()) + "_" + sport_abbrev)
+    dfProps.to_csv('../backend/ppscrapper/past_lines/' + str(date.today()) + "_" + sport_abbrev)
 
     print("Retrieved the props offered by PP for" + sport_abbrev + ".", '\n')
     print(dfProps)
     print('\n')
-
-
-getPPProps("MLB")

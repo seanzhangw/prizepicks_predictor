@@ -1,4 +1,5 @@
 from flask import Flask, redirect, url_for
+from ppscrapper import scrapper
 from apifairy import APIFairy
 import os
 
@@ -20,9 +21,13 @@ def create_app():
     def index():
         return redirect(url_for('apifairy.docs'))
     
+    @app.route('/props')
+    def retrieve_props():
+        return scrapper.getPPProps("MLB")
+
     @app.get('/ping')
     def ping():
         return {'response': 'pong'}
-
+ 
     return app
 
