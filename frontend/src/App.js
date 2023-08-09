@@ -14,7 +14,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route exact path="/home" component={Home} />
-          <Route path="/ovr-under" component={OvrUnder} />
+          <Route path="/over_under" element={<OvrUnder/>}/>
           <Route path="/w-l" component={WinLoss} />
           {/* You can add more routes for other pages */}
         </Routes>
