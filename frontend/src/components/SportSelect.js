@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 
  
-function IndiButton() {
+function IndiButton(props) {
     const [hovered,setHovered] = useState(false);
 
     const handleMouseEntry = () => {
@@ -35,15 +35,15 @@ function IndiButton() {
             onMouseLeave={(handleMouseExit)}
         >
             <img
-                src={hovered ? '/bsktballw.png': '/bsktball.png'}
-                alt="fix" 
+                src={hovered ? '/sport_icons/' + props.srcalt : '/sport_icons/' + props.src}
+                alt={props.alt}
                 style={{
                     width: '35px',
                     height: '35px',
                 }}
             />
             <span style={{fontSize: 16, fontWeight: 'bold', fontFamily: 'IndustryBook'
-            }}>NBA</span>
+            }}>{props.label}</span>
       </Button>
     )
 }

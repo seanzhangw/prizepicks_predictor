@@ -1,0 +1,126 @@
+,Name,Value,Prop
+0,Gerrit Cole,7.5,Pitcher Strikeouts
+1,Shane McClanahan,6.0,Pitcher Strikeouts
+2,Grayson Rodriguez,5.0,Pitcher Strikeouts
+3,Yusei Kikuchi,6.5,Pitcher Strikeouts
+4,Joe Ryan,6.0,Pitcher Strikeouts
+5,Dakota Hudson,4.0,Pitcher Strikeouts
+6,Dane Dunning,4.5,Pitcher Strikeouts
+7,Dylan Cease,7.0,Pitcher Strikeouts
+8,Drew Smyly,5.0,Pitcher Strikeouts
+9,Brandon Williamson,4.0,Pitcher Strikeouts
+10,Kodai Senga,6.0,Pitcher Strikeouts
+11,Cole Ragans,4.0,Pitcher Strikeouts
+12,Logan Webb,5.0,Pitcher Strikeouts
+13,Hogan Harris,4.0,Pitcher Strikeouts
+14,Tony Gonsolin,5.5,Pitcher Strikeouts
+15,Gerrit Cole + Shane McClanahan,14.0,Pitcher Strikeouts (Combo)
+16,Yusei Kikuchi + Grayson Rodriguez,11.5,Pitcher Strikeouts (Combo)
+17,Kodai Senga + Joe Ryan,12.0,Pitcher Strikeouts (Combo)
+18,Brandon Williamson + Drew Smyly,9.0,Pitcher Strikeouts (Combo)
+19,Dylan Cease + Dane Dunning,11.5,Pitcher Strikeouts (Combo)
+20,Tony Gonsolin + Logan Webb,10.5,Pitcher Strikeouts (Combo)
+21,Yusei Kikuchi + Grayson Rodriguez,0.5,1st Inning Runs Allowed
+22,Dakota Hudson + Joe Ryan,0.5,1st Inning Runs Allowed
+23,Dylan Cease + Dane Dunning,0.5,1st Inning Runs Allowed
+24,Slade Cecconi + Drew Smyly,0.5,1st Inning Runs Allowed
+25,Tony Gonsolin + Brandon Williamson,0.5,1st Inning Runs Allowed
+26,Gerrit Cole + Shane McClanahan,1.5,1st Inning Hits Allowed
+27,Yusei Kikuchi + Grayson Rodriguez,1.5,1st Inning Hits Allowed
+28,Tony Gonsolin + Hogan Harris,1.5,1st Inning Hits Allowed
+29,Gerrit Cole,5.0,Hits Allowed
+30,Shane McClanahan,4.5,Hits Allowed
+31,Grayson Rodriguez,4.5,Hits Allowed
+32,Yusei Kikuchi,5.0,Hits Allowed
+33,Dakota Hudson,5.0,Hits Allowed
+34,Joe Ryan,5.0,Hits Allowed
+35,Dylan Cease,4.5,Hits Allowed
+36,Brandon Williamson,5.0,Hits Allowed
+37,Drew Smyly,5.0,Hits Allowed
+38,Cole Ragans,4.5,Hits Allowed
+39,Kodai Senga,4.5,Hits Allowed
+40,Hogan Harris,5.0,Hits Allowed
+41,Tony Gonsolin,5.0,Hits Allowed
+42,Luke Raley,0.5,Total Bases
+43,Vladimir Guerrero Jr.,1.5,Total Bases
+44,Joey Gallo,0.5,Total Bases
+45,Mitch Garver,0.5,Total Bases
+46,Seby Zavala,0.5,Total Bases
+47,Stuart Fairchild,0.5,Total Bases
+48,Drew Waters,0.5,Total Bases
+49,Mookie Betts,1.5,Total Bases
+50,Tyler Soderstrom,0.5,Total Bases
+51,Tony Gonsolin,1.5,Walks Allowed
+52,Gerrit Cole,39.5,Pitcher Fantasy Score
+53,Shane McClanahan,32.5,Pitcher Fantasy Score
+54,Grayson Rodriguez,25.5,Pitcher Fantasy Score
+55,Yusei Kikuchi,32.5,Pitcher Fantasy Score
+56,Joe Ryan,31.5,Pitcher Fantasy Score
+57,Dylan Cease,33.5,Pitcher Fantasy Score
+58,Dane Dunning,27.5,Pitcher Fantasy Score
+59,Kodai Senga,34.5,Pitcher Fantasy Score
+60,Logan Webb,31.5,Pitcher Fantasy Score
+61,Aaron Judge,1.5,Hits+Runs+RBIS
+62,Yandy Díaz,1.5,Hits+Runs+RBIS
+63,Wander Franco,1.5,Hits+Runs+RBIS
+64,Adley Rutschman,1.5,Hits+Runs+RBIS
+65,Anthony Santander,1.5,Hits+Runs+RBIS
+66,Paul Goldschmidt,1.5,Hits+Runs+RBIS
+67,Marcus Semien,1.5,Hits+Runs+RBIS
+68,Nathaniel Lowe,1.5,Hits+Runs+RBIS
+69,Cody Bellinger,1.5,Hits+Runs+RBIS
+70,Aaron Judge + Yandy Díaz,3.0,Hits+Runs+RBIs (Combo)
+71,Vladimir Guerrero Jr. + Adley Rutschman,3.5,Hits+Runs+RBIs (Combo)
+72,Paul Goldschmidt + Carlos Correa,3.5,Hits+Runs+RBIs (Combo)
+73,Bobby Witt Jr. + Francisco Lindor,3.5,Hits+Runs+RBIs (Combo)
+74,Shane McClanahan,16.5,Pitching Outs
+75,Yusei Kikuchi,16.5,Pitching Outs
+76,Joe Ryan,17.5,Pitching Outs
+77,Dylan Cease,17.0,Pitching Outs
+78,Dane Dunning,17.5,Pitching Outs
+79,Tony Gonsolin,17.5,Pitching Outs
+80,Aaron Judge,7.0,Hitter Fantasy Score
+81,Wander Franco,6.5,Hitter Fantasy Score
+82,Yandy Díaz,6.5,Hitter Fantasy Score
+83,Adley Rutschman,6.5,Hitter Fantasy Score
+84,Vladimir Guerrero Jr.,7.0,Hitter Fantasy Score
+85,Anthony Santander,6.5,Hitter Fantasy Score
+86,Paul Goldschmidt,6.5,Hitter Fantasy Score
+87,Carlos Correa,6.5,Hitter Fantasy Score
+88,Nolan Arenado,6.5,Hitter Fantasy Score
+89,Marcus Semien,6.5,Hitter Fantasy Score
+90,Luis Robert,7.5,Hitter Fantasy Score
+91,Nathaniel Lowe,6.5,Hitter Fantasy Score
+92,Cody Bellinger,7.0,Hitter Fantasy Score
+93,Matt McLain,7.0,Hitter Fantasy Score
+94,Nico Hoerner,8.0,Hitter Fantasy Score
+95,Pete Alonso,8.0,Hitter Fantasy Score
+96,Bobby Witt Jr.,7.5,Hitter Fantasy Score
+97,Francisco Lindor,7.5,Hitter Fantasy Score
+98,Corbin Carroll,7.5,Hitter Fantasy Score
+99,Ketel Marte,7.0,Hitter Fantasy Score
+100,Mookie Betts,9.0,Hitter Fantasy Score
+101,Freddie Freeman,8.5,Hitter Fantasy Score
+102,Gerrit Cole,101.5,Pitches Thrown
+103,Grayson Rodriguez,91.5,Pitches Thrown
+104,Joe Ryan,95.5,Pitches Thrown
+105,Dylan Cease,97.5,Pitches Thrown
+106,Dane Dunning,90.5,Pitches Thrown
+107,Kodai Senga,99.5,Pitches Thrown
+108,Grayson Rodriguez,2.5,Earned Runs Allowed
+109,Dakota Hudson,2.5,Earned Runs Allowed
+110,Dane Dunning,2.5,Earned Runs Allowed
+111,Bobby Witt Jr. + Travis Jankowski,0.5,Stolen Bases (Combo)
+112,Aaron Judge,0.5,Runs
+113,Vladimir Guerrero Jr.,0.5,Runs
+114,Carlos Correa,0.5,Runs
+115,Nico Hoerner,0.5,Runs
+116,Francisco Lindor,0.5,Runs
+117,Giancarlo Stanton + Randy Arozarena,0.5,Walks (Combo)
+118,Aaron Judge,1.5,Hitter Strikeouts
+119,Max Kepler,0.5,Hitter Strikeouts
+120,Tommy Edman,0.5,Hitter Strikeouts
+121,Andrew Benintendi,0.5,Hitter Strikeouts
+122,Lourdes Gurriel Jr.,0.5,Hitter Strikeouts
+123,Wilmer Flores,0.5,Hitter Strikeouts
+124,Amed Rosario,0.5,Hitter Strikeouts

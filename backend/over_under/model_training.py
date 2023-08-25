@@ -6,8 +6,10 @@ import time
 import random as rand
 import csv
 from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import MinMaxScaler
 import numpy as np
+import pandas as pd
 """
 Features: lastNGamesAvg, seasonAvg, matchupAvg, recentUsgRate, missingLineUpStrength, OppDefRating, bettingLine
 
@@ -49,19 +51,19 @@ def getFeatures(player_id, team, stat_type, numGames, id, opp_team, plus_minus, 
     """
     # Adding the avg of the last N games
     game_features.append(dp.getlastNGamesAvg(player_id, stat_type, numGames, game_id=id))
-    time.sleep(2)
+    time.sleep(3)
     # Adding the season avg
     game_features.append(dp.getSeasonAvg(player_id, stat_type, game_id=id))
-    time.sleep(2)
+    time.sleep(3)
     # Adding the matchup avg
     game_features.append(dp.getMatchupAvg(player_id, stat_type, opp_team, game_id=id))
-    time.sleep(2)
+    time.sleep(3)
     # Adding the length of the matchup log (Greater length means more weight should be placed on Matchup Avg)
     game_features.append(dp.getPrevMatchupLogLength(player_id, opp_team))
-    time.sleep(2)
+    time.sleep(3)
     # Adding the recent usage rate
     game_features.append(dp.getRecentUsageRate(player_id, numGames, game_id=id))
-    time.sleep(2)
+    time.sleep(3)
     # Adding the past lineup strength
     try:
         game_features.append(dp.getPastMissingLineupStrength(team, player_id, id))
@@ -74,7 +76,7 @@ def getFeatures(player_id, team, stat_type, numGames, id, opp_team, plus_minus, 
     betting_line = dp.getPointsScored(player_id,game_id=id).values + offset
     game_features.append(betting_line[0])
     print(game_features)
-    time.sleep(2)
+    time.sleep(5)
 
     if offset > 0:
         return True
@@ -91,7 +93,7 @@ def get_trained_model_from_csv(filename, penalty, solver, c_penalty):
     solver : string containing the type of algorithim used for logistic regression. See sklearn Logistic Regression documentation.
     c_penalty : integer hyperparameter specifying how strong regularization should be. Higher c_penalty values correspond to simpler models (less complex) and vice versa.
     """
-    path = "prizepicks_predictor/backend/over_under/processed_data/" + filename 
+    path = "prizepicks_predictor/backend/over_under/" + filename 
     
     # Reading test data from the test data csv
     features = []
@@ -109,7 +111,7 @@ def get_trained_model_from_csv(filename, penalty, solver, c_penalty):
     model.fit(features,results)
 
     # Storing the model as a pkl file in the models directory
-    pickle.dump(model, open('prizepicks_predictor/backend/models/over_under.pkl', 'wb'))
+    pickle.dump(model, open('prizepicks_predictor/backend/models/over_under2.pkl', 'wb'))
     return model
 
 def test_model(test_filename, model_obj = None):
@@ -120,7 +122,7 @@ def test_model(test_filename, model_obj = None):
     test_filename : string containing the name of the file with the test data
     model_obj : a trained model object
     """
-    path = "prizepicks_predictor/backend/over_under/processed_data/" + test_filename
+    path = "prizepicks_predictor/backend/over_under/" + test_filename
     features = []
     true_results = []
 
@@ -128,7 +130,7 @@ def test_model(test_filename, model_obj = None):
     if model_obj:
         model = model_obj
     else:
-        model = pickle.load(open('prizepicks_predictor/backend/models/over_under.pkl','rb'))
+        model = pickle.load(open('prizepicks_predictor/backend/models/over_under2.pkl','rb'))
 
     # Reading the test data and extracting the features for prediction and the real results for comparison
     with open(path, 'r') as file:
@@ -149,11 +151,11 @@ def test_model(test_filename, model_obj = None):
     # Comparing model test results and real results
     for i in range(total_elements):
         if test_results[i] == true_results[i]:
-            print("correct: " + str(probabilities[i]))
+            # print("correct: " + str(probabilities[i]))
             correct_prob.append(max(probabilities[i]))
             total_matches += 1
         else:
-            print("incorrect: " + str(probabilities[i]))
+            # print("incorrect: " + str(probabilities[i]))
             incorrect_prob.append(max(probabilities[i]))
 
     print("mean correct: " + str(np.mean(correct_prob)))
@@ -161,11 +163,53 @@ def test_model(test_filename, model_obj = None):
  
     return total_matches/total_elements
 
-
-print(test_model("test_data_normalized_2.csv"))
+print(test_model("test_zach_normalized.csv", get_trained_model_from_csv("training_zach_normalized.csv", penalty="l2", c_penalty=1, solver="lbfgs")))
     
-#get_trained_model_from_csv(filename="training_data_no_normalization.csv", penalty="l2",c_penalty=1,solver="lbfgs")
-def prep_data_pts_model(filename, player_list, numGames):
+# get_trained_model_from_csv(filename="training_zach_normalized.csv", penalty="l2",c_penalty=1,solver="lbfgs")
+
+def optimize_hyperparameters(filename):
+    param_grid = [
+    {
+        'penalty': ['l2'],
+        'solver': ['newton-cg', 'lbfgs', 'sag', 'saga', 'liblinear', 'newton-cholesky'],
+        'C': [0.1, 1.0, 10]
+    },
+    {
+        'penalty': ['l1'],
+        'solver': ['saga', 'liblinear'],
+        'C': [0.1, 1.0, 10]
+    },
+    {
+        'penalty': ['elasticnet'],
+        'solver': ['saga'],
+        'C': [0.1, 1.0, 10]
+    },
+    {
+        'penalty': [None],
+        'solver': ['lbfgs', 'newton-cholesky', 'newton-cg', 'sag', 'saga']
+    }
+    ]
+    path = "prizepicks_predictor/backend/over_under/" + filename 
+    
+    # Reading test data from the test data csv
+    features = []
+    results = []
+    with open(path, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            row = list(map(float, row))
+            # Split the row into features and result and append them to respective lists
+            features.append(row[:-1])
+            results.append(row[-1])
+
+    clf = LogisticRegression(max_iter=10000) # Increase max_iter if needed
+    grid_search = GridSearchCV(clf, param_grid, cv=5)
+    grid_search.fit(features, results)
+    print(grid_search.best_params_)
+
+#optimize_hyperparameters("training_zach.csv")
+
+def prep_data_pts_csv(filename, player_list, numGames):
     """
     Creates one csv file that contains the training data and one csv file that contains the test data.
 
@@ -174,22 +218,24 @@ def prep_data_pts_model(filename, player_list, numGames):
     numGames: int that specifies the number of games to train the model on
     """
     path = "prizepicks_predictor/backend/over_under/processed_data/" + filename
-
+    
     data = {"features" : [], "results" : []}
-
+    labels = ["Last 5 Avg", "Season Avg", "Matchup Avg", "Matchup Log Length", "Recent Usg Rate", "Missing Lineup Strength", "Line w/ Offset", "Result"]
+    data_full = []
     for player_id in player_list:
         print("NEW PLAYER: " + str(player_id))
         gamelog = dr.getGameLog(player_id, numGames=82)
+        time.sleep(5)
         game_id_list = gamelog["Game_ID"].values
         game_id_list = game_id_list[:20]
         team = dr.get_player_team(player_id=player_id)
-        time.sleep(30)
+        time.sleep(45)
         for id in game_id_list:
             opp_team = dp.getOppTeamAbbrev(game_id=id, team=team)
             print(id)
             game_features = []
             under = getFeatures(player_id=player_id,team=team,numGames=numGames,stat_type="PTS",id=id,opp_team=opp_team,plus_minus=4,game_features=game_features)
-            time.sleep(1) # Delay to stop nba.com from refusing requests
+            time.sleep(5) # Delay to stop nba.com from refusing requests
             if under:
                 result = 0 # Under b/c the offset made the line too high (adding a positive)
             else:
@@ -199,14 +245,44 @@ def prep_data_pts_model(filename, player_list, numGames):
             if not any(math.isnan(feature) for feature in game_features):
                 data["results"].append(result)
                 data["features"].append(game_features)
-        
-    scaler = MinMaxScaler()
-    scaler.fit(data["features"])
-    data["features"] = scaler.transform(data["features"])
-    with open(path, 'w', newline='') as file:
-        writer = csv.writer(file)
-        for i in range(len(data['features'])):
-            row = np.concatenate((data["features"][i], [data["results"][i]]))
-            writer.writerow(row)
+                combined = game_features + [result]
+                data_full.append(combined)
 
-#prep_data_pts_model(filename="test_data_normalized_2.csv",player_list = [203954, 203999,2544], numGames = 5)
+    df = pd.DataFrame(data_full, columns=labels)
+    df.to_csv("test_zach2", index=False)
+    # Uncomment to normalize. Commented to prepare Zach's data
+    # scaler = MinMaxScaler()
+    # scaler.fit(data["features"])
+    # data["features"] = scaler.transform(data["features"])
+    # with open(path, 'w', newline='') as file:
+    #     writer = csv.writer(file)
+    #     for i in range(len(data['features'])):
+    #         row = np.concatenate((data["features"][i], [data["results"][i]]))
+    #         writer.writerow(row)
+
+# prep_data_pts_model(filename="test_data_normalized_2.csv",player_list = [1628973, 201142, 201939], numGames = 5)
+
+# rest = []
+
+# finished = [203954, 203999, 2544, 203507, 1628389, 201935, 201950, 1628983, 1629029, 1628973, 201142, 201939]
+
+# features = []
+# results = []
+# with open("prizepicks_predictor/backend/over_under/test_zach.csv", 'r') as r:
+#     reader = csv.reader(r)
+#     for row in reader:
+#         row = list(map(float, row))
+#         # Split the row into features and result and append them to respective lists
+#         features.append(row[:-1])
+#         results.append(row[-1])
+
+# scaler = MinMaxScaler()
+# scaler.fit(features)
+# features = scaler.transform(features)
+# results = list(map(int, results))
+
+# with open("prizepicks_predictor/backend/over_under/test_zach_normalized.csv", 'w', newline='') as file:
+#     writer = csv.writer(file)
+#     for i in range(len(features)):
+#         row = np.concatenate((features[i], [results[i]]))
+#         writer.writerow(row)

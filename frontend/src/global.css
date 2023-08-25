@@ -2,3 +2,48 @@
 body {
     background-color: black;
 }
+
+.page-wrapper {
+    max-width: 70%;
+}
+.active-link {
+    color: white !important; 
+  }
+
+.custom-list-group {
+    background-color: black;
+    color: #d89830;
+  }
+  
+.custom-list-group-item-active {
+    background-color: black;
+    color: #d89830;
+    border-right: 1px solid #d89830;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.custom-list-group-item-inactive {
+    background-color: black;
+    color: #d89830;
+    border-right: 1px solid #d89830;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+  }
+
+.custom-list-group-item-inactive:hover {
+    text-decoration: underline;
+    color: #d89830;
+    text-underline-offset: 5px;
+  }
+  .custom-list-group-item-alt {
+    background-color: black;
+    color: #d89830;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+  }

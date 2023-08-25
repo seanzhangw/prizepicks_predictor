@@ -86,13 +86,13 @@ def _getPastUsageRate(player_id, numGames, game_date, game_id):
     Returns the usage rate of a player before the game specified by game_id
     """
     gamelog = dr.getGameLog(player_id,game_id=game_id)
-    print(gamelog)
+    #print(gamelog)
     sum = 0
     if not gamelog.empty:
         list = []
         for index, row in gamelog.iterrows():
             list.append(dr.getAdvancedBoxScore(player_id,row["Game_ID"])['USG_PCT'])
-            print("HERE DUMBASS")
+            #print("HERE DUMBASS")
             if len(list) == numGames:
                 break
 
